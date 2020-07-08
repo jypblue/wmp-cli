@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+if (process.env.ENV === 'development') {
+	require('../src/index');
+} else {
+	require('../lib/index');
+}
