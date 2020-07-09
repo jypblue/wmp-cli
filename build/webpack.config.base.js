@@ -1,12 +1,13 @@
 
 const path = require('path');
 const StylelintWebpackPlugin = require('stylelint-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const MiniPlugin = require('mini-program-webpack-loader').plugin
-const Yargs = require('yargs')
-const Dotenv = require('dotenv-webpack')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniPlugin = require('mini-program-webpack-loader').plugin;
+const Dotenv = require('dotenv-webpack');
 const utils = require('./utils')
-const mode = process.env.ENV
+;
+
+const mode = process.env.ENV;
 const config = require(`${process.cwd()}/config`);
 
 
@@ -119,7 +120,7 @@ module.exports = {
       { context: utils.srcDir }
     ),
     new Dotenv({
-      path: path.resolve(__dirname, utils.resolve(`.env${(mode && mode !== 'none' && mode !== '') ? `.${mode}` : ''}`))
+      path: path.resolve(__dirname, utils.resolve(`${process.cwd()}/.env${(mode && mode !== 'none' && mode !== '') ? `.${mode}` : ''}`))
     }),
     new StylelintWebpackPlugin()
   ],
@@ -131,4 +132,4 @@ module.exports = {
   watchOptions: {
     ignored: [/node_modules/, /dist/]
   }
-}
+};

@@ -1,0 +1,9 @@
+/build/
+/node_modules
+/config/
+/dist/
+src/components/vant/wxs/*
+src/wxs/*
+# /*.js
+# /**/#*.js
+

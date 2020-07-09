@@ -1,11 +1,11 @@
-const path = require('path')
+
 const webpack = require('webpack');
-const merge = require('webpack-merge')
+const merge = require('webpack-merge');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
-const utils = require('./utils')
 const base = require('./webpack.config.base.js')
-const config = require(`${process.cwd()}/config`);
-const mode = process.env.ENV
+;
+
+const mode = process.env.ENV;
 const isDev = mode !== 'production';
 module.exports = merge(base, {
   mode: 'development',
@@ -19,4 +19,4 @@ module.exports = merge(base, {
     new webpack.NoEmitOnErrorsPlugin(),
     new FriendlyErrorsPlugin()
   ]
-})
+});

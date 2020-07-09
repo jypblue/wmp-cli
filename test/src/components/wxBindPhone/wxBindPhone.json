@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+      "shg-popup": "../popup/popup",
+      "shg-icon": "../icon/icon"
+    }
+}

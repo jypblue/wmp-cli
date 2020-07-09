@@ -1,10 +1,11 @@
-'use strict';
+
 const path = require('path');
+
 const config = require(`${process.cwd()}/config`);
 
 const resolve = function(dir) {
   return path.join(__dirname, '../', dir);
-}
+};
 
 const srcDir = resolve('src');
 
@@ -18,14 +19,16 @@ exports.fileLoader = name => ({
     context: path.resolve(__dirname, srcDir),
     name
   }
-})
+});
 
 exports.parseAlias = () => {
   const alias = {
     '@': srcDir,
   };
   for (const k in config.alias) {
-    alias[k] = resolve(config.alias[k]);
+    if(config.alias.hasOwnProperty(k)) {
+      alias[k] = resolve(config.alias[k]);
+    }
   }
   return alias;
 };
@@ -36,10 +39,10 @@ exports.copyPatterns = [
     to: path.resolve(__dirname, resolve('dist/static'))
   }
 ]
-	.concat(config.copyWebpack || [])
-	.map(
-		(pattern) =>
-			typeof pattern === 'string' ? { from: pattern, to: pattern } : pattern,
-	);
+  .concat(config.copyWebpack || [])
+  .map(
+    (pattern) =>
+      typeof pattern === 'string' ? { from: pattern, to: pattern } : pattern,
+  );
 
 exports.srcDir = srcDir;

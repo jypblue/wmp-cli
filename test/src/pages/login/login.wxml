@@ -1,0 +1,16 @@
+<view class="shg-login">
+      <view class="shg-login-content">
+        <view class="shg-login-logo"></view>
+        <view class="shg-login-text">日用之美</view>
+        <button wx:if="{{ntk}}" bind:tap="handleUserInfoBind"  class="shg-login-btn"><icon></icon>微信手机号授权登录</button>
+        <button wx:if="{{!ntk}}" open-type="getUserInfo" bindgetuserinfo="handleUserInfoBind"  class="shg-login-btn"><icon></icon>微信手机号授权登录</button>
+    </view>
+
+    <shg-wx-login
+        event="{{userInfoEvent}}"
+        type="PHONE_BINDING"
+        redirectType="redirectTo"
+        bind:complete="handleLoginComplete"
+        >
+    </shg-wx-login>
+</view>

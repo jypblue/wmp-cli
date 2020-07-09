@@ -1,0 +1,10 @@
+
+<view>
+    <!-- 绑定弹窗 -->
+    <shg-bind-phone
+        show="{{isBindPhoneShow}}"
+        bind:cancel="handleBindPhoneCancel"
+        bind:confirm="handleBindPhoneConfirm"
+        >
+    </shg-bind-phone>
+</view>

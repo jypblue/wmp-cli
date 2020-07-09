@@ -1,0 +1,42 @@
+<view class="ph-bind">
+    <view class="ph-bind-item" wx:if="{{wxBindUserInfo}}">
+        <view class="ph-bind-item__title">
+            您选择的手机号码{{wxBindUserInfo.mobile}} 已与下方账户绑定
+        </view>
+        <view class="ph-bind-item-card">
+            <view class="flex flex-align-center">
+                <view class="ph-bind-item__image">
+                    <image class="ph-bind-item__avatar" src="{{wxBindUserInfo.imageUrl}}" mode="aspectFit" lazy-load="false"/>
+                </view>
+                <view class="ph-bind-item__info">
+                    <view class="ph-bind-item__name">
+                        {{wxBindUserInfo.nickName}}
+                    </view>
+                    <view class="ph-bind-item__register">
+                        {{wxBindUserInfo.curCreateAt}}
+                    </view>
+                </view>
+            </view>
+            <view class="ph-bind-item__nickname">
+                绑定微信号：{{wxBindUserInfo.bindNickName}}
+            </view>
+            <view class="ph-bind-item__phone">
+                绑定手机号：{{wxBindUserInfo.mobile}}
+            </view>
+        </view>
+    </view>
+    <view class="ph-bind-footer">
+        <view class="ph-app-tips">
+            <view class="">
+                您可在一条APP通过手机号
+            </view>
+             <view class="inline">{{wxBindUserInfo.mobile}}</view>登录，完成微信绑定
+        </view>
+        <button class="ph-bind-confirm" open-type="contact" bindcontact="onlineServerCallback">
+            前往APP
+        </button>
+        <view class="ph-to-app" >
+            客服回话 <view class="ph-to-app-number">回复数字“1”</view>，获取下载链接
+        </view>
+    </view>
+</view>

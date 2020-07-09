@@ -1,0 +1,42 @@
+@import '../common/index.wxss';
+
+.shg-auth-box {
+    background: #FFFFFF;
+    border-radius: 8rpx;
+    width: 550rpx;
+    font-size: 26rpx;
+    color: #666666;
+}
+
+.shg-auth-main {
+    padding: 40rpx 50rpx 35rpx;
+    text-align: center;
+}
+.shg-auth-title {
+    font-size: 32rpx;
+    color: #333333;
+}
+
+.shg-auth-footer {
+    border-top: 1rpx solid #E5E5E5;
+}
+.shg-auth-btn {
+    flex: 1;
+    height: 90rpx;
+    font-size: 32rpx;
+    color: #999999;
+    text-align: center;
+    background-color: #FFFFFF;
+    border-radius: 0;
+    line-height: 90rpx;
+    letter-spacing: 0;
+}
+.shg-auth-btn:nth-child(2){
+    border-left: 1rpx solid #E5E5E5;
+}
+
+.shg-auth-btn::after {
+    border-radius: 0;
+    border: none;
+}
+.shg-auth-btn.is-allow{ color: #AD0E11;}

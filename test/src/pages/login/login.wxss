@@ -1,0 +1,51 @@
+@import '/component/common/index.wxss';
+
+.shg-login{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.shg-login-content{
+    width: 100%;
+    padding-top: 270rpx;
+    box-sizing: border-box;
+    text-align: center;
+}
+.shg-login-logo{
+    display: inline-block;
+    width: 100rpx;
+    height: 170rpx;
+    background: url('https://asset.yit.com/xcx/icon/login/yitiaoFont20190703.png') no-repeat;
+    background-size: 100%;
+}
+.shg-login-text{
+    margin-top: 20rpx;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: PingFangSC-Regular;
+    font-size: 38rpx;
+    color: #333333;
+}
+.shg-login-btn{
+    margin-top: 240rpx;
+    background: #08C160;
+    border-radius: 6rpx;
+    line-height: 88rpx;
+    width: 80%;
+    height: 88rpx;
+    color: #fff;
+    font-size: 32rpx;
+}
+.shg-login-btn icon{
+    display: inline-block;
+    width: 60rpx;
+    height: 60rpx;
+    background: url('https://asset.yit.com/xcx/icon/ico_wechat.png') no-repeat;
+    background-size: contain;
+    vertical-align: middle;
+    margin: 0 20rpx 0 0;
+}

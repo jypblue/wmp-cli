@@ -1,12 +1,12 @@
-const path = require('path')
+
 const webpack = require('webpack');
-const merge = require('webpack-merge')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const merge = require('webpack-merge');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const base = require('./webpack.config.base.js')
-const utils = require('./utils')
-const mode = process.env.ENV
+const base = require('./webpack.config.base.js');
+
+const mode = process.env.ENV;
 // process.env.GENERATE_SOURCEMAP !== 'false' ? 'source-map' : 'none',
 module.exports = merge(base,
   {
@@ -45,4 +45,4 @@ module.exports = merge(base,
       }),
     ]
   }
-)
+);

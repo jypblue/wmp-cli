@@ -1,0 +1,99 @@
+@import '/component/common/index.wxss';
+
+.pt100 {
+    padding-top: 100rpx;
+}
+.ph-bind {
+    padding: 0 45rpx;
+    box-sizing: border-box;
+}
+
+.ph-bind-item {
+    padding: 67rpx 0 60rpx;
+}
+.ph-bind-item:nth-child(2) {
+    border-top: 1rpx dashed #cccccc;
+}
+.ph-bind-item__title {
+    font-size: 28rpx;
+    color: #333333;
+    line-height: 28rpx;
+}
+
+.ph-bind-item-card {
+    margin-top: 30rpx;
+    /* width: 660rpx; */
+    height: 245rpx;
+    box-sizing: border-box;
+    padding: 30rpx 40rpx;
+    background: #F7F7F7;
+    border-radius: 16rpx;
+    font-size: 22rpx;
+    color: #999999;
+}
+.ph-bind-item__image {
+    border-radius: 100%;
+    overflow: hidden;
+    width: 100rpx;
+    height: 100rpx;
+    background-color: #999999;
+}
+.ph-bind-item__avatar {
+    width: 100rpx;
+    height: 100rpx;
+}
+.ph-bind-item__name {
+    font-size: 32rpx;
+    color: #333333;
+    letter-spacing: 0;
+    min-height: 32rpx;
+}
+.ph-bind-item__register { padding-top: 12rpx;}
+.ph-bind-item__info {
+    padding-left: 20rpx;
+}
+
+.ph-bind-item__nickname {margin-top: 26rpx;}
+
+.ph-bind-footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 160rpx;
+}
+.ph-bind-confirm {
+    width: 600rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    margin: 60rpx auto 30rpx;
+    text-align: center;
+    color: #ffffff;
+    background: #C13B38;
+    border-radius: 8rpx;
+    font-size: 32rpx;
+    letter-spacing: 0;
+}
+
+.ph-app-tips {
+    width: 490rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #666666;
+    letter-spacing: 0;
+    margin: 0 auto;
+}
+.inline {
+    display: inline;
+}
+.ph-to-app {
+    font-size: 26rpx;
+    color: #999999;
+    text-align: center;
+    width: 490rpx;
+    letter-spacing: 0;
+    margin: 0 auto;
+}
+.ph-to-app-number {
+    color: #C13B38;
+    display:inline;
+}
