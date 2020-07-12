@@ -20,7 +20,7 @@ program
 
 program
   .command('build')
-  .description('start serve')
+  .description('start build')
   .action(() => {
     try {
       webpack(require('../build/webpack.config.prod'), (err, stats) => {
