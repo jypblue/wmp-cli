@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-console.log(process.env.ENV);
+
 if (process.env.ENV === 'development') {
   require('../src/index');
 } else {

@@ -11,6 +11,7 @@
     "test:build": "cd test && ENV=production  ../bin/wmp build",
     "prebuild": "rimraf ./lib && mkdirp ./lib",
     "prepublish": "npm run build",
+    "publish": "npm publish --access public",
     "build:watch": "babel src -o lib/index.js -w",
     "build": "npx babel src --out-dir lib",
     "lint": "eslint --ext .js command/ --fix"
