@@ -2,6 +2,7 @@ import { addUnit, isDef } from '../common/utils';
 import { VantComponent } from '../common/component';
 import { button } from '../mixins/button';
 import { openType } from '../mixins/open-type';
+
 const FIT_MODE_MAP = {
   none: 'center',
   fill: 'scaleToFill',

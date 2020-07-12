@@ -1,4 +1,5 @@
 import { VantComponent } from '../common/component';
+
 const nextTick = () => new Promise((resolve) => setTimeout(resolve, 20));
 VantComponent({
   classes: ['title-class', 'content-class'],

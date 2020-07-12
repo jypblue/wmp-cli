@@ -1,5 +1,6 @@
 const SDKAPPID = process.env.MODE === '__DEV__' ? 1400321408 : 1400293760;
 const domain = process.env.DOMAIN;
+console.log(process.env);
 export default {
   AID: 5, // 项目id
   PARTNERID: 'wechat_mini_program',

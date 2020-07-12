@@ -4,11 +4,10 @@ const path = require('path');
 const config = require(`${process.cwd()}/config`);
 
 const resolve = function(dir) {
-  return path.join(__dirname, '../', dir);
+  return path.join(process.cwd(), dir);
 };
 
 const srcDir = resolve('src');
-
 
 exports.resolve = resolve;
 
@@ -16,7 +15,7 @@ exports.fileLoader = name => ({
   loader: 'file-loader',
   options: {
     publicPath: '',
-    context: path.resolve(__dirname, srcDir),
+    context: resolve(srcDir),
     name
   }
 });
@@ -35,8 +34,8 @@ exports.parseAlias = () => {
 
 exports.copyPatterns = [
   {
-    from: path.resolve(__dirname, resolve('static')),
-    to: path.resolve(__dirname, resolve('dist/static'))
+    from: resolve('static'),
+    to: resolve('dist/static')
   }
 ]
   .concat(config.copyWebpack || [])

@@ -2,6 +2,7 @@ import { VantComponent } from '../common/component';
 import { button } from '../mixins/button';
 import { openType } from '../mixins/open-type';
 import { GRAY, BLUE } from '../common/color';
+
 VantComponent({
   mixins: [button, openType],
   props: {

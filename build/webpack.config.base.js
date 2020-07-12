@@ -1,33 +1,28 @@
 
-const path = require('path');
 const StylelintWebpackPlugin = require('stylelint-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniPlugin = require('mini-program-webpack-loader').plugin;
-const Dotenv = require('dotenv-webpack');
-const utils = require('./utils')
-;
-
-const mode = process.env.ENV;
-const config = require(`${process.cwd()}/config`);
+const utils = require('./utils');
 
 
 module.exports = {
-  context: path.resolve(__dirname, '../'),
   entry: [
-    path.resolve(__dirname, utils.resolve('src/app.json'))
+    utils.resolve('src/app.json')
   ],
   output: {
-    path: path.resolve(process.cwd(), 'dist')
+    path: utils.resolve('dist')
   },
   resolve: {
     extensions: ['.js', '.ts', '.json'],
+    modules: [utils.srcDir, 'node_modules'],
     alias: utils.parseAlias(),
+    symlinks: false
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        include: path.resolve(__dirname, utils.resolve('src')),
+        include: utils.resolve('src'),
         exclude: /node_modules/,
         use: [
           {
@@ -47,7 +42,7 @@ module.exports = {
       },
       {
         test: /.wxs$/,
-        include: path.resolve(__dirname, utils.resolve('src')),
+        include: utils.resolve('src'),
         exclude: /node_modules/,
         use: [
           utils.fileLoader('[path][name].[ext]'),
@@ -55,12 +50,6 @@ module.exports = {
             loader: 'babel-loader',
             options: {
               cacheDirectory: true // cacheDirectory用于缓存babel的编译结果,加快重新编译的速度
-            }
-          },
-          {
-            loader: 'eslint-loader',
-            options: {
-              formatter: require('eslint-friendly-formatter')
             }
           },
           'mini-program-webpack-loader'
@@ -119,9 +108,6 @@ module.exports = {
       utils.copyPatterns,
       { context: utils.srcDir }
     ),
-    new Dotenv({
-      path: path.resolve(__dirname, utils.resolve(`${process.cwd()}/.env${(mode && mode !== 'none' && mode !== '') ? `.${mode}` : ''}`))
-    }),
     new StylelintWebpackPlugin()
   ],
   stats: {

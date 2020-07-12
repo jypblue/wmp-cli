@@ -1,5 +1,6 @@
 import { VantComponent } from '../common/component';
 import { pageScrollMixin } from '../mixins/page-scroll';
+
 const ROOT_ELEMENT = '.van-sticky';
 VantComponent({
   props: {

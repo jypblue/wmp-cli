@@ -1,5 +1,6 @@
 import { VantComponent } from '../common/component';
 import { BLUE } from '../common/color';
+
 VantComponent({
   props: {
     inactive: Boolean,

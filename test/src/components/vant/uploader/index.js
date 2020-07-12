@@ -1,70 +1,67 @@
 import { VantComponent } from '../common/component';
 import { isImageFile, isVideo, chooseFile, isPromise } from './utils';
 import { chooseImageProps, chooseVideoProps } from './shared';
+
 VantComponent({
-  props: Object.assign(
-    Object.assign(
-      {
-        disabled: Boolean,
-        multiple: Boolean,
-        uploadText: String,
-        useBeforeRead: Boolean,
-        afterRead: null,
-        beforeRead: null,
-        previewSize: {
-          type: null,
-          value: 90,
-        },
-        name: {
-          type: [Number, String],
-          value: '',
-        },
-        accept: {
-          type: String,
-          value: 'image',
-        },
-        fileList: {
-          type: Array,
-          value: [],
-          observer: 'formatFileList',
-        },
-        maxSize: {
-          type: Number,
-          value: Number.MAX_VALUE,
-        },
-        maxCount: {
-          type: Number,
-          value: 100,
-        },
-        deletable: {
-          type: Boolean,
-          value: true,
-        },
-        showUpload: {
-          type: Boolean,
-          value: true,
-        },
-        previewImage: {
-          type: Boolean,
-          value: true,
-        },
-        previewFullImage: {
-          type: Boolean,
-          value: true,
-        },
-        imageFit: {
-          type: String,
-          value: 'scaleToFill',
-        },
-        uploadIcon: {
-          type: String,
-          value: 'photograph',
-        },
-      },
-      chooseImageProps
-    ),
-    chooseVideoProps
-  ),
+  props: {
+    disabled: Boolean,
+    multiple: Boolean,
+    uploadText: String,
+    useBeforeRead: Boolean,
+    afterRead: null,
+    beforeRead: null,
+    previewSize: {
+      type: null,
+      value: 90,
+    },
+    name: {
+      type: [Number, String],
+      value: '',
+    },
+    accept: {
+      type: String,
+      value: 'image',
+    },
+    fileList: {
+      type: Array,
+      value: [],
+      observer: 'formatFileList',
+    },
+    maxSize: {
+      type: Number,
+      value: Number.MAX_VALUE,
+    },
+    maxCount: {
+      type: Number,
+      value: 100,
+    },
+    deletable: {
+      type: Boolean,
+      value: true,
+    },
+    showUpload: {
+      type: Boolean,
+      value: true,
+    },
+    previewImage: {
+      type: Boolean,
+      value: true,
+    },
+    previewFullImage: {
+      type: Boolean,
+      value: true,
+    },
+    imageFit: {
+      type: String,
+      value: 'scaleToFill',
+    },
+    uploadIcon: {
+      type: String,
+      value: 'photograph',
+    },
+    ...chooseImageProps,
+    ...chooseVideoProps
+  },
   data: {
     lists: [],
     isInCount: true,
@@ -73,14 +70,12 @@ VantComponent({
     formatFileList() {
       const { fileList = [], maxCount } = this.data;
       const lists = fileList.map((item) =>
-        Object.assign(Object.assign({}, item), {
-          isImage:
+        ({...item, isImage:
             typeof item.isImage === 'undefined'
               ? isImageFile(item)
               : item.isImage,
-          deletable:
-            typeof item.deletable === 'undefined' ? true : item.deletable,
-        })
+        deletable:
+            typeof item.deletable === 'undefined' ? true : item.deletable,})
       );
       this.setData({ lists, isInCount: lists.length < maxCount });
     },
@@ -94,14 +89,12 @@ VantComponent({
       const { maxCount, multiple, accept, lists, disabled } = this.data;
       if (disabled) return;
       chooseFile(
-        Object.assign(Object.assign({}, this.data), {
-          maxCount: maxCount - lists.length,
-        })
+        {...this.data, maxCount: maxCount - lists.length,}
       )
         .then((res) => {
           let file = null;
           if (isVideo(res, accept)) {
-            file = Object.assign({ path: res.tempFilePath }, res);
+            file = {path: res.tempFilePath, ...res};
           } else {
             file = multiple ? res.tempFiles : res.tempFiles[0];
           }
@@ -121,11 +114,9 @@ VantComponent({
         res = new Promise((resolve, reject) => {
           this.$emit(
             'before-read',
-            Object.assign(Object.assign({ file }, this.getDetail()), {
-              callback: (ok) => {
-                ok ? resolve() : reject();
-              },
-            })
+            {file, ...this.getDetail(), callback: (ok) => {
+              ok ? resolve() : reject();
+            },}
           );
         });
       }
@@ -144,21 +135,19 @@ VantComponent({
         ? file.some((item) => item.size > maxSize)
         : file.size > maxSize;
       if (oversize) {
-        this.$emit('oversize', Object.assign({ file }, this.getDetail()));
+        this.$emit('oversize', {file, ...this.getDetail()});
         return;
       }
       if (typeof this.data.afterRead === 'function') {
         this.data.afterRead(file, this.getDetail());
       }
-      this.$emit('after-read', Object.assign({ file }, this.getDetail()));
+      this.$emit('after-read', {file, ...this.getDetail()});
     },
     deleteItem(event) {
       const { index } = event.currentTarget.dataset;
       this.$emit(
         'delete',
-        Object.assign(Object.assign({}, this.getDetail(index)), {
-          file: this.data.fileList[index],
-        })
+        {...this.getDetail(index), file: this.data.fileList[index],}
       );
     },
     onPreviewImage(event) {
@@ -181,7 +170,7 @@ VantComponent({
       const item = this.data.lists[index];
       this.$emit(
         'click-preview',
-        Object.assign(Object.assign({}, item), this.getDetail(index))
+        {...item, ...this.getDetail(index)}
       );
     },
   },

@@ -3,7 +3,7 @@ const chalk = require('chalk');
 const webpack = require('webpack');
 
 program
-  .version('0.1.0')
+  .version('0.0.1')
   .usage('[options]');
 
 program

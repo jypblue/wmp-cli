@@ -1,5 +1,6 @@
 import { VantComponent } from '../common/component';
 import { WHITE } from '../common/color';
+
 VantComponent({
   props: {
     message: String,

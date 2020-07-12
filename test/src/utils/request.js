@@ -7,7 +7,7 @@ import { isObject } from 'lodash';
 import config from '../config';
 import { getDeviceId } from './device';
 import anonym_api_map from 'assets/file/anonym_api_map.js';
-import noanonym_api_map from 'assets/file/noanonym_api_map.js';
+import no_anonym_api_map from 'assets/file/no_anonym_api_map.js';
 
 
 
@@ -60,7 +60,7 @@ const formatRequestParams = (params, csrfToken) => {
     // 判断是否有依赖，目前只支持一层依赖
     const mt = item.indexOf(':') > -1 ? item.substring(0, item.indexOf(':')) : item;
     const anonym = anonym_api_map.includes(mt); // 是匿名接口
-    const noAnonym = noanonym_api_map.includes(mt);// 是非匿名接口
+    const noAnonym = no_anonym_api_map.includes(mt);// 是非匿名接口
 
     if (!anonym && !noAnonym) {
       console.error([

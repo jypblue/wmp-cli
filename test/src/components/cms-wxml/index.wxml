@@ -3,7 +3,7 @@
 </template>
 
 <template name="h5NewPresonArea">
-  <h5NewPresonArea data="{{module}}" />
+  <h5NewPersonArea data="{{module}}" />
 </template>
 
 <template name="h5TimeLimit">

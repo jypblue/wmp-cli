@@ -1,4 +1,5 @@
 module.exports = {
+  entry: 'src/app.json',
   alias: {
     '@': 'src',
     'utils': 'src/utils',
@@ -12,5 +13,11 @@ module.exports = {
   copyWebpack: [
     'sitemap.json',
     'custom-tab-bar'
-  ]
+  ],
+  build: {
+    env: require('./prod.env')
+  },
+  dev: {
+    env: require('./dev.env')
+  }
 };

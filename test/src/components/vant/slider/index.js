@@ -1,6 +1,7 @@
 import { VantComponent } from '../common/component';
 import { touch } from '../mixins/touch';
 import { canIUseModel } from '../common/version';
+
 VantComponent({
   mixins: [touch],
   props: {

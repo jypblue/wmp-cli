@@ -1,5 +1,6 @@
 import { VantComponent } from '../common/component';
 import { getSystemInfoSync } from '../common/utils';
+
 VantComponent({
   classes: ['title-class'],
   props: {

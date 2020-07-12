@@ -1,32 +1,31 @@
 import { VantComponent } from '../common/component';
 import { pickerProps } from './shared';
+
 VantComponent({
   classes: ['active-class', 'toolbar-class', 'column-class'],
-  props: Object.assign(Object.assign({}, pickerProps), {
-    valueKey: {
-      type: String,
-      value: 'text',
+  props: {...pickerProps, valueKey: {
+    type: String,
+    value: 'text',
+  },
+  toolbarPosition: {
+    type: String,
+    value: 'top',
+  },
+  defaultIndex: {
+    type: Number,
+    value: 0,
+  },
+  columns: {
+    type: Array,
+    value: [],
+    observer(columns = []) {
+      this.simple = columns.length && !columns[0].values;
+      this.children = this.selectAllComponents('.van-picker__column');
+      if (Array.isArray(this.children) && this.children.length) {
+        this.setColumns().catch(() => {});
+      }
     },
-    toolbarPosition: {
-      type: String,
-      value: 'top',
-    },
-    defaultIndex: {
-      type: Number,
-      value: 0,
-    },
-    columns: {
-      type: Array,
-      value: [],
-      observer(columns = []) {
-        this.simple = columns.length && !columns[0].values;
-        this.children = this.selectAllComponents('.van-picker__column');
-        if (Array.isArray(this.children) && this.children.length) {
-          this.setColumns().catch(() => {});
-        }
-      },
-    },
-  }),
+  },},
   beforeCreate() {
     this.children = [];
   },

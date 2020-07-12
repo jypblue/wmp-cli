@@ -4,7 +4,7 @@ function getContext() {
   return pages[pages.length - 1];
 }
 const Dialog = (options) => {
-  options = Object.assign(Object.assign({}, Dialog.currentOptions), options);
+  options = {...Dialog.currentOptions, ...options};
   return new Promise((resolve, reject) => {
     const context = options.context || getContext();
     const dialog = context.selectComponent(options.selector);
@@ -12,7 +12,7 @@ const Dialog = (options) => {
     delete options.selector;
     if (dialog) {
       dialog.setData(
-        Object.assign({ onCancel: reject, onConfirm: resolve }, options)
+        {onCancel: reject, onConfirm: resolve, ...options}
       );
       queue.push(dialog);
     } else {
@@ -45,7 +45,7 @@ Dialog.defaultOptions = {
 };
 Dialog.alert = Dialog;
 Dialog.confirm = (options) =>
-  Dialog(Object.assign({ showCancelButton: true }, options));
+  Dialog({showCancelButton: true, ...options});
 Dialog.close = () => {
   queue.forEach((dialog) => {
     dialog.close();
@@ -61,7 +61,7 @@ Dialog.setDefaultOptions = (options) => {
   Object.assign(Dialog.currentOptions, options);
 };
 Dialog.resetDefaultOptions = () => {
-  Dialog.currentOptions = Object.assign({}, Dialog.defaultOptions);
+  Dialog.currentOptions = { ...Dialog.defaultOptions};
 };
 Dialog.resetDefaultOptions();
 export default Dialog;

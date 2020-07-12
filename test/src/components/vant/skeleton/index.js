@@ -1,4 +1,5 @@
 import { VantComponent } from '../common/component';
+
 VantComponent({
   classes: ['avatar-class', 'title-class', 'row-class'],
   props: {

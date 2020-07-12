@@ -1,5 +1,5 @@
 function padZero(num, targetLength = 2) {
-  let str = num + '';
+  let str = String(num);
   while (str.length < targetLength) {
     str = '0' + str;
   }

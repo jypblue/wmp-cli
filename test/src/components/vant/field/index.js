@@ -1,50 +1,47 @@
 import { VantComponent } from '../common/component';
 import { commonProps, inputProps, textareaProps } from './props';
+
 VantComponent({
   field: true,
   classes: ['input-class', 'right-icon-class', 'label-class'],
-  props: Object.assign(
-    Object.assign(
-      Object.assign(Object.assign({}, commonProps), inputProps),
-      textareaProps
-    ),
-    {
-      size: String,
-      icon: String,
-      label: String,
-      error: Boolean,
-      center: Boolean,
-      isLink: Boolean,
-      leftIcon: String,
-      rightIcon: String,
-      autosize: [Boolean, Object],
-      readonly: {
-        type: Boolean,
-        observer: 'setShowClear',
-      },
-      required: Boolean,
-      iconClass: String,
-      clearable: {
-        type: Boolean,
-        observer: 'setShowClear',
-      },
-      clickable: Boolean,
-      inputAlign: String,
-      customStyle: String,
-      errorMessage: String,
-      arrowDirection: String,
-      showWordLimit: Boolean,
-      errorMessageAlign: String,
-      border: {
-        type: Boolean,
-        value: true,
-      },
-      titleWidth: {
-        type: String,
-        value: '90px',
-      },
-    }
-  ),
+  props: {
+    ...commonProps, ...inputProps,
+    ...textareaProps,
+    size: String,
+    icon: String,
+    label: String,
+    error: Boolean,
+    center: Boolean,
+    isLink: Boolean,
+    leftIcon: String,
+    rightIcon: String,
+    autosize: [Boolean, Object],
+    readonly: {
+      type: Boolean,
+      observer: 'setShowClear',
+    },
+    required: Boolean,
+    iconClass: String,
+    clearable: {
+      type: Boolean,
+      observer: 'setShowClear',
+    },
+    clickable: Boolean,
+    inputAlign: String,
+    customStyle: String,
+    errorMessage: String,
+    arrowDirection: String,
+    showWordLimit: Boolean,
+    errorMessageAlign: String,
+    border: {
+      type: Boolean,
+      value: true,
+    },
+    titleWidth: {
+      type: String,
+      value: '90px',
+    },
+  },
   data: {
     focused: false,
     innerValue: '',

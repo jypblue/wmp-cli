@@ -1,5 +1,6 @@
 import { VantComponent } from '../common/component';
 import { addUnit } from '../common/utils';
+
 let ARRAY = [];
 VantComponent({
   field: true,

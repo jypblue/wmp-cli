@@ -1,5 +1,6 @@
 import { VantComponent } from '../common/component';
 import { isDef } from '../common/utils';
+
 const LONG_PRESS_START_TIME = 600;
 const LONG_PRESS_INTERVAL = 200;
 // add num and avoid float number
@@ -102,7 +103,7 @@ VantComponent({
       this.emitChange(value);
       this.$emit(
         'blur',
-        Object.assign(Object.assign({}, event.detail), { value })
+        {...event.detail, value}
       );
     },
     // filter illegal characters
@@ -117,7 +118,7 @@ VantComponent({
     format(value) {
       value = this.filter(value);
       // format range
-      value = value === '' ? 0 : +value;
+      value = value === '' ? 0 : Number(value);
       value = Math.max(Math.min(this.data.max, value), this.data.min);
       // format decimal
       if (isDef(this.data.decimalLength)) {
@@ -151,8 +152,8 @@ VantComponent({
         this.$emit('overlimit', type);
         return;
       }
-      const diff = type === 'minus' ? -this.data.step : +this.data.step;
-      const value = this.format(add(+this.data.currentValue, diff));
+      const diff = type === 'minus' ? -this.data.step : Number(this.data.step);
+      const value = this.format(add(Number(this.data.currentValue), diff));
       this.emitChange(value);
       this.$emit(type);
     },

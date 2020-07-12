@@ -68,15 +68,6 @@ Component({
     showTabBar: true,
   },
   attached() {
-    const { shopList } = this.data;
-    const currentPages = getCurrentPages();
-    if(currentPages.length) {
-      const route = currentPages[0].route;
-      const item = shopList.filter(item => item.pagePath === '/' + route);
-      this.setData({
-        showTabBar: item.length
-      });
-    }
   },
   methods: {
     switchTab(event) {

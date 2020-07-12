@@ -1,5 +1,6 @@
 import { VantComponent } from '../common/component';
 import { BLUE, GRAY_DARK } from '../common/color';
+
 VantComponent({
   field: true,
   classes: ['node-class'],

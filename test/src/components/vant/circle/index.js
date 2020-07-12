@@ -2,6 +2,7 @@ import { VantComponent } from '../common/component';
 import { isObj } from '../common/utils';
 import { BLUE, WHITE } from '../common/color';
 import { adaptor } from './canvas';
+
 function format(rate) {
   return Math.min(Math.max(rate, 0), 100);
 }

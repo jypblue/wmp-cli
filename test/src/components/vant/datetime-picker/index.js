@@ -1,6 +1,7 @@
 import { VantComponent } from '../common/component';
 import { isDef } from '../common/utils';
 import { pickerProps } from '../picker/shared';
+
 const currentYear = new Date().getFullYear();
 function isValidDate(date) {
   return isDef(date) && !isNaN(new Date(date).getTime());
@@ -32,56 +33,54 @@ function getMonthEndDay(year, month) {
 const defaultFormatter = (_, value) => value;
 VantComponent({
   classes: ['active-class', 'toolbar-class', 'column-class'],
-  props: Object.assign(Object.assign({}, pickerProps), {
-    value: {
-      type: null,
-      observer: 'updateValue',
-    },
-    filter: null,
-    type: {
-      type: String,
-      value: 'datetime',
-      observer: 'updateValue',
-    },
-    showToolbar: {
-      type: Boolean,
-      value: true,
-    },
-    formatter: {
-      type: null,
-      value: defaultFormatter,
-    },
-    minDate: {
-      type: Number,
-      value: new Date(currentYear - 10, 0, 1).getTime(),
-      observer: 'updateValue',
-    },
-    maxDate: {
-      type: Number,
-      value: new Date(currentYear + 10, 11, 31).getTime(),
-      observer: 'updateValue',
-    },
-    minHour: {
-      type: Number,
-      value: 0,
-      observer: 'updateValue',
-    },
-    maxHour: {
-      type: Number,
-      value: 23,
-      observer: 'updateValue',
-    },
-    minMinute: {
-      type: Number,
-      value: 0,
-      observer: 'updateValue',
-    },
-    maxMinute: {
-      type: Number,
-      value: 59,
-      observer: 'updateValue',
-    },
-  }),
+  props: {...pickerProps, value: {
+    type: null,
+    observer: 'updateValue',
+  },
+  filter: null,
+  type: {
+    type: String,
+    value: 'datetime',
+    observer: 'updateValue',
+  },
+  showToolbar: {
+    type: Boolean,
+    value: true,
+  },
+  formatter: {
+    type: null,
+    value: defaultFormatter,
+  },
+  minDate: {
+    type: Number,
+    value: new Date(currentYear - 10, 0, 1).getTime(),
+    observer: 'updateValue',
+  },
+  maxDate: {
+    type: Number,
+    value: new Date(currentYear + 10, 11, 31).getTime(),
+    observer: 'updateValue',
+  },
+  minHour: {
+    type: Number,
+    value: 0,
+    observer: 'updateValue',
+  },
+  maxHour: {
+    type: Number,
+    value: 23,
+    observer: 'updateValue',
+  },
+  minMinute: {
+    type: Number,
+    value: 0,
+    observer: 'updateValue',
+  },
+  maxMinute: {
+    type: Number,
+    value: 59,
+    observer: 'updateValue',
+  },},
   data: {
     innerValue: Date.now(),
     columns: [],
@@ -253,8 +252,8 @@ VantComponent({
       const picker = this.getPicker();
       if (data.type === 'time') {
         const indexes = picker.getIndexes();
-        value = `${+data.columns[0].values[indexes[0]]}:${+data.columns[1]
-          .values[indexes[1]]}`;
+        value = `${Number(data.columns[0].values[indexes[0]])}:${Number(data.columns[1]
+          .values[indexes[1]])}`;
       } else {
         const values = picker.getValues();
         const year = getTrueValue(values[0]);

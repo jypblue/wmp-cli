@@ -1,4 +1,3 @@
-
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -6,8 +5,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const base = require('./webpack.config.base.js');
 
-const mode = process.env.ENV;
-// process.env.GENERATE_SOURCEMAP !== 'false' ? 'source-map' : 'none',
+const config = require(`${process.cwd()}/config`);
+
 module.exports = merge(base,
   {
     mode: 'production',
@@ -41,7 +40,7 @@ module.exports = merge(base,
         dry: false
       }),
       new webpack.DefinePlugin({
-        'process.env': mode
+        'process.env': config[process.env.CONF || 'build'].env
       }),
     ]
   }

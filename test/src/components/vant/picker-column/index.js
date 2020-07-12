@@ -1,5 +1,6 @@
 import { VantComponent } from '../common/component';
 import { isObj, range } from '../common/utils';
+
 const DEFAULT_DURATION = 200;
 VantComponent({
   classes: ['active-class'],

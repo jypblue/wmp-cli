@@ -1,5 +1,6 @@
 import { VantComponent } from '../common/component';
 import { canIUseModel } from '../common/version';
+
 VantComponent({
   field: true,
   classes: ['icon-class'],
@@ -78,7 +79,7 @@ VantComponent({
           .find((item) => clientX >= item.left && clientX <= item.right);
         if (target != null) {
           this.onSelect(
-            Object.assign(Object.assign({}, event), { currentTarget: target })
+            {...event, currentTarget: target}
           );
         }
       });

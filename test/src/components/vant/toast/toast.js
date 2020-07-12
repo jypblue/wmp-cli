@@ -1,4 +1,5 @@
 import { isObj } from '../common/utils';
+
 const defaultOptions = {
   type: 'text',
   mask: false,
@@ -12,7 +13,7 @@ const defaultOptions = {
   selector: '#van-toast',
 };
 let queue = [];
-let currentOptions = Object.assign({}, defaultOptions);
+let currentOptions = { ...defaultOptions};
 function parseOptions(message) {
   return isObj(message) ? message : { message };
 }
@@ -21,10 +22,10 @@ function getContext() {
   return pages[pages.length - 1];
 }
 function Toast(toastOptions) {
-  const options = Object.assign(
-    Object.assign({}, currentOptions),
-    parseOptions(toastOptions)
-  );
+  const options = {
+    ...currentOptions,
+    ...parseOptions(toastOptions)
+  };
   const context = options.context || getContext();
   const toast = context.selectComponent(options.selector);
   if (!toast) {
@@ -51,7 +52,7 @@ function Toast(toastOptions) {
   return toast;
 }
 const createMethod = (type) => (options) =>
-  Toast(Object.assign({ type }, parseOptions(options)));
+  Toast({type, ...parseOptions(options)});
 Toast.loading = createMethod('loading');
 Toast.success = createMethod('success');
 Toast.fail = createMethod('fail');
@@ -65,6 +66,6 @@ Toast.setDefaultOptions = (options) => {
   Object.assign(currentOptions, options);
 };
 Toast.resetDefaultOptions = () => {
-  currentOptions = Object.assign({}, defaultOptions);
+  currentOptions = { ...defaultOptions};
 };
 export default Toast;

@@ -5,6 +5,7 @@ import {
   getPrevDay,
   getNextDay,
 } from '../../utils';
+
 VantComponent({
   props: {
     date: {

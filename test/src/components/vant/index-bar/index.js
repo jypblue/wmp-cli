@@ -1,6 +1,7 @@
 import { VantComponent } from '../common/component';
 import { GREEN } from '../common/color';
 import { pageScrollMixin } from '../mixins/page-scroll';
+
 const indexList = () => {
   const indexList = [];
   const charCodeOfA = 'A'.charCodeAt(0);

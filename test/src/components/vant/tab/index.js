@@ -1,4 +1,5 @@
 import { VantComponent } from '../common/component';
+
 VantComponent({
   relation: {
     name: 'tabs',

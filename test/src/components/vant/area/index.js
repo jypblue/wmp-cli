@@ -1,43 +1,42 @@
 import { VantComponent } from '../common/component';
 import { pickerProps } from '../picker/shared';
+
 const COLUMNSPLACEHOLDERCODE = '000000';
 VantComponent({
   classes: ['active-class', 'toolbar-class', 'column-class'],
-  props: Object.assign(Object.assign({}, pickerProps), {
-    value: {
-      type: String,
-      observer(value) {
-        this.code = value;
-        this.setValues();
-      },
+  props: {...pickerProps, value: {
+    type: String,
+    observer(value) {
+      this.code = value;
+      this.setValues();
     },
-    areaList: {
-      type: Object,
-      value: {},
-      observer: 'setValues',
+  },
+  areaList: {
+    type: Object,
+    value: {},
+    observer: 'setValues',
+  },
+  columnsNum: {
+    type: null,
+    value: 3,
+    observer(value) {
+      this.setData({
+        displayColumns: this.data.columns.slice(0, Number(value)),
+      });
     },
-    columnsNum: {
-      type: null,
-      value: 3,
-      observer(value) {
-        this.setData({
-          displayColumns: this.data.columns.slice(0, +value),
-        });
-      },
+  },
+  columnsPlaceholder: {
+    type: Array,
+    observer(val) {
+      this.setData({
+        typeToColumnsPlaceholder: {
+          province: val[0] || '',
+          city: val[1] || '',
+          county: val[2] || '',
+        },
+      });
     },
-    columnsPlaceholder: {
-      type: Array,
-      observer(val) {
-        this.setData({
-          typeToColumnsPlaceholder: {
-            province: val[0] || '',
-            city: val[1] || '',
-            county: val[2] || '',
-          },
-        });
-      },
-    },
-  }),
+  },},
   data: {
     columns: [{ values: [] }, { values: [] }, { values: [] }],
     displayColumns: [{ values: [] }, { values: [] }, { values: [] }],
@@ -122,8 +121,8 @@ VantComponent({
           type === 'province'
             ? ''
             : type === 'city'
-            ? COLUMNSPLACEHOLDERCODE.slice(2, 4)
-            : COLUMNSPLACEHOLDERCODE.slice(4, 6);
+              ? COLUMNSPLACEHOLDERCODE.slice(2, 4)
+              : COLUMNSPLACEHOLDERCODE.slice(4, 6);
         result.unshift({
           code: `${code}${codeFill}`,
           name: typeToColumnsPlaceholder[type],

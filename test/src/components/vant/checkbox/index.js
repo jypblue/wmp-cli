@@ -1,4 +1,5 @@
 import { VantComponent } from '../common/component';
+
 function emit(target, value) {
   target.$emit('input', value);
   target.$emit('change', value);
