@@ -9,13 +9,14 @@ const resolve = function(dir) {
 
 const srcDir = resolve('src');
 
+
 exports.resolve = resolve;
 
 exports.fileLoader = name => ({
   loader: 'file-loader',
   options: {
     publicPath: '',
-    context: resolve(srcDir),
+    context: path.resolve(__dirname, srcDir),
     name
   }
 });
@@ -34,8 +35,8 @@ exports.parseAlias = () => {
 
 exports.copyPatterns = [
   {
-    from: resolve('static'),
-    to: resolve('dist/static')
+    from: path.resolve(__dirname, resolve('static')),
+    to: path.resolve(__dirname, resolve('dist/static'))
   }
 ]
   .concat(config.copyWebpack || [])

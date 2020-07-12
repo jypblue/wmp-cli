@@ -1,28 +1,28 @@
 
+const path = require('path');
+
 const StylelintWebpackPlugin = require('stylelint-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniPlugin = require('mini-program-webpack-loader').plugin;
 const utils = require('./utils');
 
-
 module.exports = {
+  context: path.resolve(__dirname, '../'),
   entry: [
-    utils.resolve('src/app.json')
+    path.resolve(__dirname, utils.resolve('src/app.json'))
   ],
   output: {
-    path: utils.resolve('dist')
+    path: path.resolve(process.cwd(), 'dist')
   },
   resolve: {
     extensions: ['.js', '.ts', '.json'],
-    modules: [utils.srcDir, 'node_modules'],
     alias: utils.parseAlias(),
-    symlinks: false
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        include: utils.resolve('src'),
+        include: path.resolve(__dirname, utils.resolve('src')),
         exclude: /node_modules/,
         use: [
           {
@@ -42,7 +42,7 @@ module.exports = {
       },
       {
         test: /.wxs$/,
-        include: utils.resolve('src'),
+        include: path.resolve(__dirname, utils.resolve('src')),
         exclude: /node_modules/,
         use: [
           utils.fileLoader('[path][name].[ext]'),
