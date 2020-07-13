@@ -78,7 +78,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.scss$/,
+        test: /\.(sa|sc|c)ss$/,
         exclude: /node_modules/,
         use: [
           utils.fileLoader('[path][name].wxss'),
@@ -108,7 +108,9 @@ module.exports = {
       utils.copyPatterns,
       { context: utils.srcDir }
     ),
-    new StylelintWebpackPlugin()
+    new StylelintWebpackPlugin({
+      context: utils.srcDir
+    })
   ],
   stats: {
     colors: true,

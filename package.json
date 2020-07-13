@@ -1,6 +1,6 @@
 {
   "name": "@zx.wang/wmp-cli",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "a wmp-cli project for wechat mini program",
   "main": "lib/index.js",
   "bin": {
