@@ -2,7 +2,6 @@ import {
   promisify,
   isType
 } from 'utils/util';
-import md5 from 'md5';
 import { isObject } from 'lodash';
 import config from '../config';
 import { getDeviceId } from './device';
@@ -116,7 +115,7 @@ const formatRequestParams = (params, csrfToken) => {
     }
   }
   const _sig = signaArr.sort().join('') + signature;
-  result._sig = md5(_sig);
+  result._sig = _sig;
 
   return result;
 };

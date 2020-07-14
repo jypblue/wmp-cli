@@ -1,9 +1,11 @@
 const program = require('commander');
 const chalk = require('chalk');
 const webpack = require('webpack');
+const pkg = require('../package.json')
+;
 
 program
-  .version('0.0.1')
+  .version(pkg.version)
   .usage('[options]');
 
 program
