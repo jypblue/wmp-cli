@@ -1126,6 +1126,11 @@
     "@types/webpack-sources" "*"
     source-map "^0.6.0"
 
+"@vant/weapp@^1.3.3":
+  version "1.10.2"
+  resolved "https://registry.yarnpkg.com/@vant/weapp/-/weapp-1.10.2.tgz#013fbf2fdc6d59d9e92bb82a0f772f032fb52945"
+  integrity sha512-caqA0xQxM4lMRncFsRPPVMDdEzUBCJ4xdFXuKReXpEU3qwnVIP/WIjVDIi7mWyS7xqz8C9WfSW5JL4PrlSq31w==
+
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
   resolved "https://nexus3.yit.com/repository/npm-public/@webassemblyjs/ast/-/ast-1.9.0.tgz#bd850604b4042459a5a41cd7d338cbed695ed964"
@@ -3132,10 +3137,10 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-standard@^14.1.1:
-  version "14.1.1"
-  resolved "https://nexus3.yit.com/repository/npm-public/eslint-config-standard/-/eslint-config-standard-14.1.1.tgz#830a8e44e7aef7de67464979ad06b406026c56ea"
-  integrity sha1-gwqOROeu995nRkl5rQa0BgJsVuo=
+eslint-config-alloy@^3.7.3:
+  version "3.10.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-alloy/-/eslint-config-alloy-3.10.0.tgz#b2d85ba3bd7dddcc6d7fc79088c192a646f4f246"
+  integrity sha512-V34DUmW5n9NU2KbqKw6ow6qHt4RKksuvLKaAAC64ZMPnzwLH8ia7s0N4pEjeVzdtVL77jehCJkupLo8eUdKGYA==
 
 eslint-friendly-formatter@^4.0.1:
   version "4.0.1"
@@ -5117,9 +5122,9 @@ minimist-options@^4.0.2:
     kind-of "^6.0.3"
 
 minimist@^1.1.3, minimist@^1.2.0, minimist@^1.2.5:
-  version "1.2.5"
-  resolved "https://nexus3.yit.com/repository/npm-public/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
-  integrity sha1-Z9ZgFLZqaoqqDAg8X9WN9OTpdgI=
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.6.tgz#8637a5b759ea0d6e98702cfb3a9283323c93af44"
+  integrity sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==
 
 miniprogram-api-promise@^1.0.4:
   version "1.0.4"
