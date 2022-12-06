@@ -1126,6 +1126,11 @@
     "@types/webpack-sources" "*"
     source-map "^0.6.0"
 
+"@vant/weapp@^1.3.3":
+  version "1.10.8"
+  resolved "https://registry.yarnpkg.com/@vant/weapp/-/weapp-1.10.8.tgz#373b88a3e051bf4b571086099edf3136de5b3b6b"
+  integrity sha512-/6w9U5UclF50ORqM2C9vo+oB5+PCOuLGpNI3cxYL1z0xWqPYratitLRhQx53Qo6k1I45Ri8DYGCb7C0qSKB/xg==
+
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
   resolved "https://nexus3.yit.com/repository/npm-public/@webassemblyjs/ast/-/ast-1.9.0.tgz#bd850604b4042459a5a41cd7d338cbed695ed964"
@@ -2708,9 +2713,9 @@ decamelize@^1.1.0, decamelize@^1.1.2, decamelize@^1.2.0:
   integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
 
 decode-uri-component@^0.2.0:
-  version "0.2.0"
-  resolved "https://nexus3.yit.com/repository/npm-public/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
-  integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.2.tgz#e69dbe25d37941171dd540e024c444cd5188e1e9"
+  integrity sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==
 
 deep-is@^0.1.3:
   version "0.1.3"
@@ -3132,10 +3137,10 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-standard@^14.1.1:
-  version "14.1.1"
-  resolved "https://nexus3.yit.com/repository/npm-public/eslint-config-standard/-/eslint-config-standard-14.1.1.tgz#830a8e44e7aef7de67464979ad06b406026c56ea"
-  integrity sha1-gwqOROeu995nRkl5rQa0BgJsVuo=
+eslint-config-alloy@^3.7.3:
+  version "3.10.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-alloy/-/eslint-config-alloy-3.10.0.tgz#b2d85ba3bd7dddcc6d7fc79088c192a646f4f246"
+  integrity sha512-V34DUmW5n9NU2KbqKw6ow6qHt4RKksuvLKaAAC64ZMPnzwLH8ia7s0N4pEjeVzdtVL77jehCJkupLo8eUdKGYA==
 
 eslint-friendly-formatter@^4.0.1:
   version "4.0.1"
